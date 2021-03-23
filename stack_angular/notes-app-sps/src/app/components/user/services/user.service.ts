@@ -9,14 +9,16 @@ import { HomeService } from '../../../home/services/home.service';
 })
 export class UserService {
 
+  url = 'https://notesapp-back.herokuapp.com';
+
   constructor(private http: HttpClient, private alertService: HomeService) { }
 
   createUser(body:any): Observable<any> {
-      return this.http.post<any>('http://localhost:3000/servicio/api_notes_app/users', body);
+      return this.http.post<any>(`${this.url}/servicio/api_notes_app/users`, body);
   }
 
   getUsers(): Observable<any> {
-      return this.http.get<any>('http://localhost:3000/servicio/api_notes_app/users');
+      return this.http.get<any>(`${this.url}/servicio/api_notes_app/users`);
   }
 
   showAlert(title:any, message:any, type:any) {

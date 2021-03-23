@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
               this.notes = data.data;
               this.notes.map((item:any) => {
                 item.date = item.date.toString().split('T')[0]  
-              })
+              });
           }
       }, erro => {
       })

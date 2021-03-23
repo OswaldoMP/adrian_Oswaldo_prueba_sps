@@ -10,11 +10,14 @@ import Swal from 'sweetalert2';
 })
 export class HomeService {
 
+  url = 'https://notesapp-back.herokuapp.com';
+
+
   constructor(private http: HttpClient) { }
 
 
   getNotes(): Observable<any> {
-      return this.http.get<any>('http://localhost:3000/servicio/api_notes_app/notes');
+      return this.http.get<any>(`${this.url}/servicio/api_notes_app/notes`);
   }
 
   infoAlert( title: string, message: string, type:any) {

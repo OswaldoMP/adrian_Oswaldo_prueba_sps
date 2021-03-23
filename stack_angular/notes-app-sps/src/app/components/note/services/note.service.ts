@@ -10,22 +10,24 @@ import { HomeService } from '../../../home/services/home.service';
 })
 export class NoteService {
 
+  url = 'https://notesapp-back.herokuapp.com';
+
   constructor(private http: HttpClient, private user: UserService, private alertService: HomeService) { }
 
   createNote(body:any): Observable<any> {
-      return this.http.post<any>('http://localhost:3000/servicio/api_notes_app/notes', body);
+      return this.http.post<any>(`${this.url}/servicio/api_notes_app/notes`, body);
   }
 
   getNote(id:any): Observable<any> {
-      return this.http.get<any>(`http://localhost:3000/servicio/api_notes_app/notes/${id}`);
+      return this.http.get<any>(`${this.url}/servicio/api_notes_app/notes/${id}`);
   }
 
   deleteNote(id:any):Observable<any> {
-      return this.http.delete<any>(`http://localhost:3000/servicio/api_notes_app/notes/${id}`);
+      return this.http.delete<any>(`${this.url}/servicio/api_notes_app/notes/${id}`);
   }
 
   updateNote(id:any, body:any) {
-      return this.http.put<any>(`http://localhost:3000/servicio/api_notes_app/notes/${id}`, body);
+      return this.http.put<any>(`${this.url}/servicio/api_notes_app/notes/${id}`, body);
   }
 
   getUsers() {
