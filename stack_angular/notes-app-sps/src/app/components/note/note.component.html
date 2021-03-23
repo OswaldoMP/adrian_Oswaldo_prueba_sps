@@ -1,0 +1,60 @@
+<app-header [selected]="selected"></app-header>
+
+<br>
+<br>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-4 offset-md-4">
+            <div>
+
+                <div class="card" style="width: 20rem;">
+                    <div class="card-header">
+                        Create note
+                    </div>
+                    <div class="card-body">
+
+
+
+                        <form [formGroup]="noteForm">
+                            <div class="mb-3">
+                                <label for="exampleInputTitle1" class="form-label">Select to user</label>
+                                <!-- <select formControlName="user"  class="form-select" aria-label="Default select example">
+                                    <option *ngFor="let user of users" value="{{user._id}}">{{user.name}}</option>
+                                  </select> -->
+                                <select class="form-select" formControlName="user">
+                                    <option *ngFor="let user of users" [value]="user._id">
+                                        {{user.name}}
+                                    </option>
+                                    <option selected="test()" value="dat">data</option>
+                                  </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputTitle1" class="form-label">Title</label>
+                                <input formControlName="title" type="text" class="form-control" id="exampleInputTitle1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                                <textarea formControlName="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                                <div class="col-10">
+                                    <input formControlName="date" class="form-control" type="date" value="2021-03-23" id="example-date-input">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" (click)="createNote()">Save</button>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

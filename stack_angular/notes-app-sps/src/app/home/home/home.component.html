@@ -1,0 +1,22 @@
+<app-header [selected]="selected"></app-header>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <section>
+                <div class="row row-cols-1 row-cols-lg-4 g-4 g-lg-5">
+                    <div *ngFor="let item of notes">
+                        <div class="col">
+                            <app-card [data]="item" (delete)="delete($event)"></app-card>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- <app-card></app-card> -->
+<!-- <app-user></app-user> -->

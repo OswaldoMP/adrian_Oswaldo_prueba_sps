@@ -1,0 +1,44 @@
+<app-header [selected]="selected"></app-header>
+
+
+
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-auto">
+                        <label for="user" class="visually">What is your name?</label>
+                        <!-- <input type="text" readonly class="form-control-plaintext" id="user" value="email@example.com"> -->
+                    </div>
+
+                    <form [formGroup]="userForm" class="row g-3">
+                        <div class="col-auto">
+                            <input formControlName="name" type="text" class="form-control" id="usename" placeholder="Juan Perez">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3" (click)="createUser()">Save</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let user of users; let i = index">
+                            <tr>
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{user.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
